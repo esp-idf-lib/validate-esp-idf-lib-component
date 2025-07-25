@@ -110,7 +110,7 @@ RSpec.describe "idf_component.yml" do
     expect(idf["files"]).to have_key "exclude"
   end
 
-  it "excludes docs directory" do
-    expect(idf["files"]["exclude"]).to include "docs"
+  it "excludes the entire docs directory" do
+    expect(idf["files"]["exclude"]).to include "docs/**/*"
   end
 end
