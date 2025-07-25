@@ -26,3 +26,7 @@ end
 def repo
   Pathname.new("repo")
 end
+
+def eil
+  YAML.safe_load(File.read(repo / ".eil.yml"))
+end
