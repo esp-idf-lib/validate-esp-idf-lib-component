@@ -62,6 +62,11 @@ RSpec.describe "idf_component.yml" do
     expect(targets).to eq targets_eil
   end
 
+  it "has uniq targets without duplicate" do
+    targets = idf["targets"].sort
+    expect(targets).to eq targets.sort.uniq
+  end
+
   it "has license" do
     expect(idf).to have_key "license"
   end
