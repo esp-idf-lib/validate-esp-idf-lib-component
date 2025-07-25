@@ -1,3 +1,4 @@
+---
 inherit_from: .rubocop_todo.yml
 plugins:
   - rubocop-rspec
@@ -17,3 +18,11 @@ Style/SymbolArray:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - spec/**/*.rb
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/**/*.rb
