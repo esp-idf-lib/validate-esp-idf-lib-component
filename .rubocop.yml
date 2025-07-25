@@ -1,0 +1,19 @@
+inherit_from: .rubocop_todo.yml
+plugins:
+  - rubocop-rspec
+  - rubocop-rake
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  # perefer brackets for `grep-ability`
+  EnforcedStyle: brackets
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
