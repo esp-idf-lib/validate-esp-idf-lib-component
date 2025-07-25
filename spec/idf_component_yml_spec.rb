@@ -19,6 +19,10 @@ RSpec.describe "idf_component.yml" do
     expect(idf["version"]).to match(/\d+\.\d+\.\d+([a-zA-Z0-0\-_]+)?/)
   end
 
+  it "has the same version in .eil.yml" do
+    expect(idf["version"]).to eq eil["version"]
+  end
+
   it "has maintainers" do
     expect(idf).to have_key "maintainers"
   end
