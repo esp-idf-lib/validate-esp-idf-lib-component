@@ -10,6 +10,10 @@ RSpec.describe "idf_component.yml" do
     expect(file.file?).to be true
   end
 
+  it "has targets" do
+    expect(idf).to have_key "targets"
+  end
+
   it "has the same targets except esp8266" do
     targets = idf["targets"].sort
     targets_eil = eil["targets"].sort.reject { |e| e == "esp8266" }
