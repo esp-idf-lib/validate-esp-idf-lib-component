@@ -29,7 +29,7 @@ bundle exec rake spec
 
 A successful output looks like below:
 
-``text
+```text
 ..
 
 Finished in 0.00405 seconds (files took 0.10226 seconds to load)
