@@ -23,4 +23,9 @@ RSpec.describe "examples" do
       symlinks.map { |s| s.children }
     end.not_to raise_error
   end
+
+  it "has examples and all of them have README.md" do
+    readmes = dir.children.select(&:directory?).map { |d| d / "README.md" }
+    expect(readmes).to all(be_exist).and all(be_file)
+  end
 end
