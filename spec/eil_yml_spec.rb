@@ -11,6 +11,11 @@ RSpec.describe ".eil.yml" do
     expect(eil).to have_key "name"
   end
 
+  it "has name other than template-component" do
+    skip_template_component
+    expect(eil["name"]).not_to eq "template-component"
+  end
+
   it "has description" do
     expect(eil).to have_key "description"
   end

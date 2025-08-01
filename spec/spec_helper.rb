@@ -1,5 +1,6 @@
 require "pathname"
 require "yaml"
+require "uri"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -29,4 +30,20 @@ end
 
 def eil
   YAML.safe_load(File.read(repo / ".eil.yml"))
+end
+
+# returns true when the repo is template-component
+def template_component?
+  origin_url = `cd repo ; git remote get-url origin`.chomp
+  # fixup origin_url if it is git protocol scheme, which URI does not
+  # understands
+  origin_url.gsub!(/@/, "https://").gsub!("github.com:", "github.com/") if origin_url.start_with? "git@github.com"
+
+  uri = URI(origin_url)
+  uri.path.split("/").last == "template-component.git"
+end
+
+# skip when the repo under test is template-component
+def skip_template_component
+  skip("the component is template-component") if template_component?
 end

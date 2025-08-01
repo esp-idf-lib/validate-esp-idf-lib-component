@@ -1,7 +1,7 @@
 require "spec_helper"
 
-RSpec.describe "README.md" do
-  let(:file) { repo / "README.md" }
+RSpec.describe "docs/index.rst" do
+  let(:file) { repo / "docs" / "index.rst" }
   let(:content) { File.read file }
 
   it "exists" do
@@ -12,10 +12,11 @@ RSpec.describe "README.md" do
     expect(file).to be_file
   end
 
-  describe "README's content" do
+  describe "index.rst's content" do
     it "does not mention template-component" do
       skip_template_component
       expect(content).not_to match(/template-component/)
     end
   end
 end
+
