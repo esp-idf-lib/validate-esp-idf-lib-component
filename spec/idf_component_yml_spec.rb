@@ -64,7 +64,13 @@ RSpec.describe "idf_component.yml" do
 
   it "has uniq targets without duplicate" do
     targets = idf["targets"].sort
-    expect(targets).to eq targets.sort.uniq
+    expect(targets).to eq targets.uniq
+  end
+
+  it "has sorted targets by name" do
+    targets = idf["targets"]
+    sorted_targets = idf["targets"].sort
+    expect(targets).to eq sorted_targets
   end
 
   it "has license" do
