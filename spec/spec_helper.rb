@@ -36,11 +36,17 @@ end
 def template_component?
   origin_url = `cd repo ; git remote get-url origin`.chomp
   # fixup origin_url if it is git protocol scheme, which URI does not
-  # understands
-  origin_url.gsub!(/@/, "https://").gsub!("github.com:", "github.com/") if origin_url.start_with? "git@github.com"
+  # understand.
+  #
+  # git@github.com:esp-idf-lib/template-component.git
+  # https://github.com/esp-idf-lib/template-component.git
+  origin_url.gsub!(/git@/, "https://").gsub!("github.com:", "github.com/") if origin_url.start_with? "git@github.com"
 
+  # XXX action/checkout uses URLs without `.git`.
+  origin_url.gsub!(/\.git$/, "")
   uri = URI(origin_url)
-  uri.path.split("/").last == "template-component.git"
+  component_name = uri.path.split("/").last
+  component_name == "template-component"
 end
 
 # skip when the repo under test is template-component
