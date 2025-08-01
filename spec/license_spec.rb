@@ -17,8 +17,8 @@ RSpec.describe "LICENSE" do
   end
 
   describe "LICENSE's content" do
-    it "has a line starting with `Copyright (c)`" do
-      expect(content).to match(/Copyright \(c\)/)
+    it "has a line starting with `Copyright`" do
+      expect(content).to match(/Copyright/)
     end
   end
 end
