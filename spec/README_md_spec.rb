@@ -1,8 +1,13 @@
 require "spec_helper"
 
 RSpec.describe "README.md" do
+  let(:file) { repo / "README.md" }
+
   it "exists" do
-    file = repo / "README.md"
-    expect(file.file?).to be true
+    expect(file).to exist
+  end
+
+  it "is a file" do
+    expect(file).to be_file
   end
 end
