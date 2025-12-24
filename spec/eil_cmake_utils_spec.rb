@@ -1,7 +1,7 @@
 require "spec_helper"
 
-RSpec.describe "common" do
-  let(:dir) { repo / "common" }
+RSpec.describe "eil-cmake-utils" do
+  let(:dir) { repo / "eil-cmake-utils" }
 
   it "exists" do
     expect(dir).to exist
