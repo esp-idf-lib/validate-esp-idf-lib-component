@@ -15,6 +15,8 @@ RSpec.describe "eil-cmake-utils" do
 
       list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/eil-cmake-utils/cmake)
 
+    Remove `common` related lines from CMakeLists.txt
+
     Edit CMakeLists.txt and add the following at the BOTTOM of file:
 
       include(eil_ci)
