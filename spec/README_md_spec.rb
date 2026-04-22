@@ -14,6 +14,7 @@ RSpec.describe "README.md" do
 
   describe "README's content" do
     it "does not mention template-component" do
+      skip_shared_workflows_component
       skip_template_component
       expect(content).not_to match(/template-component/)
     end
