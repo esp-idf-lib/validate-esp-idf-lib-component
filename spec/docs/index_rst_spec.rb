@@ -15,6 +15,7 @@ RSpec.describe "docs/index.rst" do
   describe "index.rst's content" do
     it "does not mention template-component" do
       skip_template_component
+      skip_shared_workflows_component
       expect(content).not_to match(/template-component/)
     end
   end

@@ -32,8 +32,7 @@ def eil
   YAML.safe_load(File.read(repo / ".eil.yml"))
 end
 
-# returns true when the repo is template-component
-def template_component?
+def component_name
   origin_url = `cd repo ; git remote get-url origin`.chomp
   # fixup origin_url if it is git protocol scheme, which URI does not
   # understand.
@@ -45,11 +44,23 @@ def template_component?
   # XXX action/checkout uses URLs without `.git`.
   origin_url.gsub!(/\.git$/, "")
   uri = URI(origin_url)
-  component_name = uri.path.split("/").last
+  uri.path.split("/").last
+end
+
+# returns true when the repo is template-component
+def template_component?
   component_name == "template-component"
+end
+
+def shared_workflows_component?
+  component_name == "shared-workflows"
 end
 
 # skip when the repo under test is template-component
 def skip_template_component
   skip("the component is template-component") if template_component?
+end
+
+def skip_shared_workflows_component
+  skip("the component is shared-workflows") if shared_workflows_component?
 end
