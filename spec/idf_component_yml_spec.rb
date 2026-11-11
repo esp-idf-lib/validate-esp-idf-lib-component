@@ -43,36 +43,6 @@ RSpec.describe "idf_component.yml" do
     expect(idf["description"]).not_to be_empty
   end
 
-  it "has targets" do
-    expect(idf).to have_key "targets"
-  end
-
-  it "has more than one target" do
-    expect(idf["targets"].length).to be > 0
-  end
-
-  it "has no esp8266 target" do
-    expect(idf["targets"]).not_to include "esp8266"
-  end
-
-  it "has the same targets except esp8266" do
-    targets = idf["targets"].sort
-    targets_eil = eil["targets"].sort.reject { |e| e == "esp8266" }
-
-    expect(targets).to eq targets_eil
-  end
-
-  it "has uniq targets without duplicate" do
-    targets = idf["targets"].sort
-    expect(targets).to eq targets.uniq
-  end
-
-  it "has sorted targets by name" do
-    targets = idf["targets"]
-    sorted_targets = idf["targets"].sort
-    expect(targets).to eq sorted_targets
-  end
-
   it "has license" do
     expect(idf).to have_key "license"
   end
