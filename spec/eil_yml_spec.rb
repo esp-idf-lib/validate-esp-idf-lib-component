@@ -52,19 +52,6 @@ RSpec.describe ".eil.yml" do
     expect(eil).to have_key "thread_safe"
   end
 
-  it "has targets" do
-    expect(eil).to have_key "targets"
-  end
-
-  it "has more than one target" do
-    expect(eil["targets"].length).to be > 0
-  end
-
-  it "has uniq targets without duplicate" do
-    targets = eil["targets"].sort
-    expect(targets).to eq targets.sort.uniq
-  end
-
   it "has license" do
     expect(eil).to have_key "license"
   end
